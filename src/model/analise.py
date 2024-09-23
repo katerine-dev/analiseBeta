@@ -5,6 +5,7 @@ import yfinance as yf # indíces da Ibovespa
 from datetime import datetime
 from pandas.tseries.offsets import DateOffset
 import matplotlib.pyplot as plt
+import os
 
 # Faxina dos dados 
 
@@ -93,25 +94,75 @@ def calcular_beta(indice_ibovespa, data_inicio, data_fim, dados_processados):
     print(retornos_mercado.head())
 
 
-    return beta
+    return beta, df_retorno
+
+# --------------------------------- // ---------------------------------
+def exportar_para_excel(df_retorno, beta, caminho_arquivo):
+    """
+    Exporta os retornos e o beta calculado para um arquivo Excel.
+    
+    Parâmetros:
+    - df_retorno: DataFrame com os retornos da ação e do mercado
+    - beta: Valor calculado do beta
+    - caminho_arquivo: Caminho onde o arquivo Excel será salvo
+    """
+    # Criar um DataFrame para o Beta
+    df_beta = pd.DataFrame({'Beta': [beta]})
+    
+    # Escrever os dados para o arquivo Excel
+    with pd.ExcelWriter(caminho_arquivo) as writer:
+        df_retorno.to_excel(writer, sheet_name='Retornos')
+        df_beta.to_excel(writer, sheet_name='Beta')
+    
+    print(f"Dados exportados com sucesso para {caminho_arquivo}")
 
 # --------------------------------- // ---------------------------------
 
+def gerar_graficos(df_retorno):
+    # Gerar um timestamp para garantir nomes únicos de arquivos
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    
+    # Criar o gráfico de linhas
+    plt.figure(figsize=(10, 6))
+    
+    # Plotar os retornos da ação e do mercado
+    plt.plot(df_retorno.index, df_retorno['acao'], label='Retornos da Ação', color='blue')
+    plt.plot(df_retorno.index, df_retorno['mercado'], label='Retornos do Mercado', color='green')
+    
+    # Adicionar título e legendas
+    plt.title('Retornos Diários da Ação e do Mercado')
+    plt.xlabel('Data')
+    plt.ylabel('Retornos (%)')
+    plt.legend()
+    
+    # Melhorar layout
+    plt.grid(True)
+    plt.tight_layout()
+    
+    # Salvar o gráfico na pasta 'doc' com um nome único
+    caminho_arquivo = os.path.join('doc', f'grafico_retorno_{timestamp}.png')
+    plt.savefig(caminho_arquivo)
+
+    # Mostrar o gráfico
+    plt.show()
+    
+    print(f"Gráfico salvo em: {caminho_arquivo}")
 
 # --------------------------------- // ---------------------------------
 
-# Índice de referência (IBovespa)
+# Índice de referência (Ibovespa)
 indice_ibovespa = '^BVSP'
 data_inicio = '2023-01-01'
 data_fim = '2024-01-01'  # teste de período
-beta = calcular_beta(indice_ibovespa, data_inicio, data_fim, dados_processados)
+beta, df_retorno = calcular_beta(indice_ibovespa, data_inicio, data_fim, dados_processados)
 print(f'Beta: {beta}')
 
 
+# Saída Excel
 
-# Arquivo de saída Excel
-arquivo_saida = 'doc/beta.xlsx'
+#exportar_para_excel(df_retorno, beta, 'doc/resultados_beta.xlsx')
 
 # Gerar gráficos e exportar para Excel
-#gerar_graficos_e_exportar_excel(acoes, mercado, arquivo_saida)
-#print("Cálculo e gráficos concluídos. Resultados exportados para o arquivo Excel.")
+
+# Gerar gráficos
+gerar_graficos(df_retorno)
