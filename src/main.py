@@ -1,29 +1,40 @@
-from model.analise import buscar_dados_yahoo, calcular_beta, processar_dados_csv
-from view.exportacao_excel import exportar_para_excel, exportar_para_excel_com_grafico
-from view.graficos import gerar_graficos
+from gerar_graficos_anos import calcular_e_gerar_graficos
 
-# Ações para calcular o beta
-caminho_base = 'src/csv/SUZB3.csv'
+"""
+Cálculo do beta de 5 ações SUZB3, PETR4, ITUB4, LREN3 e WEGE3 em períodos fixos de 1, 3 e 5 anos, utilizando o índice Ibovespa
+Para cada ação será gerado: 
+- Um excel com os resultados, sem gráfico. 
+- Um excel com os resultados e gráficos de análise.
+- Um gráfico utilizando a biblioteca python matplotlib. 
+O objetivo é comparar os formatos e a interpretação dos dados em diferentes representações.
+"""
+# CÁLCULO DO BETA
+# SUZB3
+caminho_base_suzb3 = 'src/csv/SUZB3.csv'
+calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 1, '2023-05-13', '2024-05-03', 'doc/SUZB3sg_1ano.xlsx')
+calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 3, '2021-07-31', '2024-07-31', 'doc/SUZB3sg_3anos.xlsx')
+calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 5, '2019-08-28', '2024-08-28', 'doc/SUZB3sg_5anos.xlsx')
 
-# Processar os dados
-dados_processados = processar_dados_csv(caminho_base)
+# ITUB4
+caminho_base_itub4 = 'src/csv/ITUB4.csv'
+calcular_e_gerar_graficos(caminho_base_itub4, 'ITUB4', 1, '2023-08-30', '2024-08-30', 'doc/ITUB4sg_1ano.xlsx')
+calcular_e_gerar_graficos(caminho_base_itub4, 'ITUB4', 3, '2021-03-29', '2024-03-29', 'doc/ITUB4sg_3anos.xlsx')
+calcular_e_gerar_graficos(caminho_base_itub4, 'ITUB4', 5, '2019-05-30', '2024-05-30', 'doc/ITUB4sg_5anos.xlsx')
 
-# Índice de referência (Ibovespa)
-indice_ibovespa = '^BVSP'
-data_inicio = '2023-01-01'
-data_fim = '2024-01-01'  # teste de período
+# PETR4
+caminho_base_petr4 = 'src/csv/PETR4.csv'
+calcular_e_gerar_graficos(caminho_base_petr4, 'PETR4', 1, '2023-04-03', '2024-04-03', 'doc/PETR4sg_1ano.xlsx')
+calcular_e_gerar_graficos(caminho_base_petr4, 'PETR4', 3, '2021-07-16', '2024-07-16', 'doc/PETR4sg_3anos.xlsx')
+calcular_e_gerar_graficos(caminho_base_petr4, 'PETR4', 5, '2019-09-01', '2024-09-01', 'doc/PETR4sg_5anos.xlsx')
 
+# LREN3
+caminho_base_lren3 = 'src/csv/LREN3.csv'
+calcular_e_gerar_graficos(caminho_base_lren3, 'LREN3', 1, '2023-02-13', '2024-02-13', 'doc/LREN3sg_1ano.xlsx')
+calcular_e_gerar_graficos(caminho_base_lren3, 'LREN3', 3, '2021-01-01', '2024-01-01', 'doc/LREN3sg_3anos.xlsx')
+calcular_e_gerar_graficos(caminho_base_lren3, 'LREN3', 5, '2019-05-30', '2024-05-30', 'doc/LREN3sg_5anos.xlsx')
 
-dados_mercado = buscar_dados_yahoo(indice_ibovespa, data_inicio, data_fim)
-
-beta, df_retorno = calcular_beta(dados_mercado, dados_processados)
-print(f'Beta: {beta}')
-
-# Saída Excel
-#exportar_para_excel(df_retorno, beta, 'doc/resultados_beta.xlsx')
-
-# Gerar gráficos
-#gerar_graficos(df_retorno)
-caminho_arquivo_excel = "doc/comgraficos.xlsx"
-
-exportar_para_excel_com_grafico(df_retorno, beta, caminho_arquivo_excel)
+# WEGE3
+caminho_base_wege3 = 'src/csv/WEGE3.csv'
+calcular_e_gerar_graficos(caminho_base_wege3, 'WEGE3', 1, '2023-05-02', '2024-05-02', 'doc/WEGE3sg_1ano.xlsx')
+calcular_e_gerar_graficos(caminho_base_wege3, 'WEGE3', 3, '2021-09-21', '2024-09-21', 'doc/WEGE3sg_3anos.xlsx')
+calcular_e_gerar_graficos(caminho_base_wege3, 'WEGE3', 5, '2019-05-07', '2024-05-07', 'doc/WEGE3sg_5anos.xlsx')
