@@ -31,7 +31,7 @@ calcular_e_gerar_graficos(caminho_base_petr4, 'PETR4', 5, '2019-09-01', '2024-09
 caminho_base_lren3 = 'src/csv/LREN3.csv'
 calcular_e_gerar_graficos(caminho_base_lren3, 'LREN3', 1, '2023-02-13', '2024-02-13', 'doc/LREN3sg_1ano.xlsx')
 calcular_e_gerar_graficos(caminho_base_lren3, 'LREN3', 3, '2021-01-01', '2024-01-01', 'doc/LREN3sg_3anos.xlsx')
-calcular_e_gerar_graficos(caminho_base_lren3, 'LREN3', 5, '2019-05-30', '2024-05-30', 'doc/LREN3sg_5anos.xlsx')
+calcular_e_gerar_graficos(caminho_base_lren3, 'LREN3', 5, '2019-06-30', '2024-06-30', 'doc/LREN3sg_5anos.xlsx')
 
 # WEGE3
 caminho_base_wege3 = 'src/csv/WEGE3.csv'
