@@ -55,7 +55,7 @@ Ao final da análise, será possível tirar conclusões sobre a sensibilidade da
 
 O desenvolvimento do `analiseBeta` foi realizado utilizando a linguagem de programação Python. O projeto foi estruturado em diferentes pacotes para separar as responsabilidades e facilitar a manutenção e extensibilidade do código. (csv, model, view, vba)
 
-Para o gerenciamento de depêndencias e ambientes foi utilizado a biblioteca [Poetry](https://python-poetry.org/) e para facilitar o controle de versões e desenvolvimento colaborativo o projeto está disponível no Github[^2].
+Para o gerenciamento de dependências e ambientes foi utilizado a biblioteca [Poetry](https://python-poetry.org/) e para facilitar o controle de versões e desenvolvimento colaborativo o projeto está disponível no Github[^2].
 
 ### Decisões de funcionalidades:
 
