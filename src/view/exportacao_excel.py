@@ -65,12 +65,14 @@ def exportar_para_excel_com_grafico(df_retorno, beta, caminho_arquivo):
             'name': 'Retornos da Ação',
             'categories': '=Retornos!$D$2:$D${}'.format(len(df_retorno) + 1),  # Coluna de datas formatadas
             'values': '=Retornos!$B$2:$B${}'.format(len(df_retorno) + 1),      # Coluna de retornos da ação
+            'line': {'width': 0.8} 
         })
         
         chart.add_series({
             'name': 'Retornos do Mercado',
             'categories': '=Retornos!$D$2:$D${}'.format(len(df_retorno) + 1),  # Coluna de datas formatadas
             'values': '=Retornos!$C$2:$C${}'.format(len(df_retorno) + 1),      # Coluna de retornos do mercado
+            'line': {'width': 0.8} 
         })
 
         # Adicionar o título do gráfico e os eixos
