@@ -54,6 +54,19 @@ def exportar_para_excel_com_grafico(df_retorno, beta, caminho_arquivo):
         df_retorno.to_excel(writer, sheet_name='Retornos')
         df_beta.to_excel(writer, sheet_name='Beta')
 
+        # Obter o workbook e as planilhas
+        workbook = writer.book
+        worksheet_retorno = writer.sheets['Retornos']
+        worksheet_beta = writer.sheets['Beta']
+        
+        # Ajustar as colunas para ambas as planilhas (como solicitado)
+        for worksheet, df in zip([worksheet_retorno, worksheet_beta], [df_retorno, df_beta]):
+            worksheet.set_column(0, 0, 25)  # Coluna A
+            worksheet.set_column(1, 1, 25)  # Coluna B
+            worksheet.set_column(2, 2, 25)  # Coluna C
+            worksheet.set_column(3, 3, 25)  # Coluna D
+        
+
         # Acessar o workbook e a worksheet do XlsxWriter
         workbook = writer.book
         worksheet = writer.sheets['Retornos']
@@ -63,15 +76,15 @@ def exportar_para_excel_com_grafico(df_retorno, beta, caminho_arquivo):
         
         chart.add_series({
             'name': 'Retornos da Ação',
-            'categories': '=Retornos!$D$2:$D${}'.format(len(df_retorno) + 1),  # Coluna de datas formatadas
-            'values': '=Retornos!$B$2:$B${}'.format(len(df_retorno) + 1),      # Coluna de retornos da ação
+            'categories': '=Retornos!$D$2:$D${}'.format(len(df_retorno)),  # Coluna de datas formatadas
+            'values': '=Retornos!$B$2:$B${}'.format(len(df_retorno)),      # Coluna de retornos da ação
             'line': {'width': 0.8} 
         })
         
         chart.add_series({
             'name': 'Retornos do Mercado',
-            'categories': '=Retornos!$D$2:$D${}'.format(len(df_retorno) + 1),  # Coluna de datas formatadas
-            'values': '=Retornos!$C$2:$C${}'.format(len(df_retorno) + 1),      # Coluna de retornos do mercado
+            'categories': '=Retornos!$D$2:$D${}'.format(len(df_retorno)),  # Coluna de datas formatadas
+            'values': '=Retornos!$C$2:$C${}'.format(len(df_retorno)),      # Coluna de retornos do mercado
             'line': {'width': 0.8} 
         })
 
