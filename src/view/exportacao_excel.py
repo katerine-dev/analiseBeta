@@ -39,8 +39,8 @@ def exportar_para_excel_com_grafico(df_retorno, beta, caminho_arquivo):
     - caminho_arquivo: Caminho onde o arquivo Excel será salvo
     """
     # Converter retornos para porcentagem
-    df_retorno['acao'] = df_retorno['acao'] * 100
-    df_retorno['mercado'] = df_retorno['mercado'] * 100
+    df_retorno['acao'] = df_retorno['acao'] 
+    df_retorno['mercado'] = df_retorno['mercado'] 
 
     # Formatar a coluna de datas como "mes/ano"
     df_retorno['Data Formatada'] = df_retorno.index.to_series().dt.strftime('%m/%Y')
