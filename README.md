@@ -114,9 +114,10 @@ calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 5, '2019-08-28', '2024-08
 Também foi utilizada uma macro em VBA para auxiliar na manipulação e formatação dos dados no Excel.
 
 Foi necessário fazer algumas alterações manualmente:
-- Conversão das células para number e percent.
-- Converter data para Date  (replace nas datas para `.` para `/`)
+- Conversão das células para number e percent
+- Converter data para Date  ('yyyy/mm/dd')
 - Inclui uma nova aba para os índices da ibovespa
+- Deixar datas em ordem crescente
 
 Foram implementadas essas rotinas:
 
