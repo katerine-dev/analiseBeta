@@ -20,14 +20,14 @@ Para cada ação, serão gerados:
 
 Exemplo de gráfico:
 
-![Gráfico - Python]('doc/LREN3_1anos.png')
+<img src="doc/LREN3_1anos.png">
 
 - VBA
   - Um .xlms com os resultados e graficos
 
 Exemplo de gráfico:
 
-![Gráfico - Excel]('doc/analise_github.png')
+<img src="doc/analise_github.png">
 
 O objetivo é comparar os formatos e a interpretação dos dados em diferentes representações. A análise do beta é uma medida de sensibilidade de um ativo em relação ao comportamento de um índice. No projeto foi utilizado os índices da Ibovespa. O objetivo é medir a volatilidade de uma ação, sendo uma das principais ferramentas para investidores que desejam entender o risco associado a cada ativo.
 
