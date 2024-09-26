@@ -62,9 +62,9 @@ def exportar_para_excel_com_grafico(df_retorno, beta, caminho_arquivo):
         # Ajustar as colunas para ambas as planilhas (como solicitado)
         for worksheet, df in zip([worksheet_retorno, worksheet_beta], [df_retorno, df_beta]):
             worksheet.set_column(0, 0, 25)  # Coluna A
-            worksheet.set_column(1, 1, 25)  # Coluna B
-            worksheet.set_column(2, 2, 25)  # Coluna C
-            worksheet.set_column(3, 3, 25)  # Coluna D
+            worksheet.set_column(1, 1, 20)  # Coluna B
+            worksheet.set_column(2, 2, 20)  # Coluna C
+            worksheet.set_column(3, 3, 15)  # Coluna D
         
 
         # Acessar o workbook e a worksheet do XlsxWriter
