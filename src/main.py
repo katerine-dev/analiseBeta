@@ -11,7 +11,7 @@ O objetivo é comparar os formatos e a interpretação dos dados em diferentes r
 # CÁLCULO DO BETA
 # SUZB3
 caminho_base_suzb3 = 'src/csv/SUZB3.csv'
-calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 1, '2023-05-13', '2024-05-03', 'doc/SUZB3sg_1ano.xlsx')
+calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 1, '2023-05-13', '2024-05-13', 'doc/SUZB3sg_1ano.xlsx')
 calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 3, '2021-07-08', '2024-07-08', 'doc/SUZB3sg_3anos.xlsx')
 calcular_e_gerar_graficos(caminho_base_suzb3, 'SUZB3', 5, '2019-08-28', '2024-08-28', 'doc/SUZB3sg_5anos.xlsx')
 
