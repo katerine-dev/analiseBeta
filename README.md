@@ -43,11 +43,7 @@ Ao final da análise, será possível tirar conclusões sobre a sensibilidade da
 
 - Data inicial dos dados para análise: 01/01/2019 - 23/08/2024.
 
-- Fonte:
-
-- Investing: [https://br.investing.com](https://br.investing.com) (SUZB3, PETR4, ITUB4, LREN, 3WEGE3, Ibovespa)
-
-- Yahoo Finance - Finance's API: [https://pypi.org](https://pypi.org/project/yfinance/)
+  -  Fontes: Investing: [https://br.investing.com](https://br.investing.com) (SUZB3, PETR4, ITUB4, LREN, 3WEGE3, Ibovespa); Yahoo Finance - Finance's API: [https://pypi.org](https://pypi.org/project/yfinance/)
 
 ## Python:
 
