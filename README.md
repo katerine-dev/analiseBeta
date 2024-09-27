@@ -27,7 +27,7 @@ Exemplo de gráfico:
 
 Exemplo de gráfico:
 
-<img src="doc/analise_github.png">
+<img src="doc/analise_github2.png">
 
 O objetivo é comparar os formatos e a interpretação dos dados em diferentes representações. A análise do beta é uma medida de sensibilidade de um ativo em relação ao comportamento de um índice. No projeto foi utilizado os índices da Ibovespa. O objetivo é medir a volatilidade de uma ação, sendo uma das principais ferramentas para investidores que desejam entender o risco associado a cada ativo.
 
