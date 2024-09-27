@@ -20,7 +20,7 @@ Para cada ação, serão gerados:
 
 Exemplo de gráfico:
 
-<img src="doc/LREN3_1anos.png">
+<img src="doc/SUZB3_1anos.png">
 
 - VBA
   - Um .xlms com os resultados e graficos
